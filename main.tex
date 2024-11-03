@@ -1,0 +1,122 @@
+\documentclass[margin=5pt]{standalone}
+% \usepackage[a4paper]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{xifthen}
+\usepackage{tikz}
+% \usetikzlibrary{patterns}
+\usetikzlibrary{math,calc}
+
+% Setting background and foreground layers so we can draw some things over others
+% https://tikz.dev/base-layers
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+\title{Electoral College 2024 cartogram}
+\author{Stuart Presnell}
+\date{November 5th 2024}
+
+
+% Drawing commands to draw straight lines in cardinal directions Up, Down, East, West
+\newcommand{\U}[1]{++(0,#1)}
+\newcommand{\D}[1]{++(0,-#1)}
+\newcommand{\E}[1]{++(#1,0)}
+\newcommand{\W}[1]{++(-#1,0)}
+
+\begin{document}
+
+\begin{tikzpicture}\sffamily
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% This file defines the state styles HI, AK, etc. used in draw-states.tex
+% This is where we record all the data about who has won each state
+%   (or who is modelled/predicted to win each state)
+%\input{blank-2024.tex}
+%\input{2020-results.tex}
+%\input{2024-expectation.tex}
+\input{2024-results.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Parameters setting the size of the diagram
+\def\xmin{0};
+\def\xmax{42};
+\def\ymin{-1};
+\def\ymax{32};
+
+% Define some named colouring styles
+\tikzstyle{wait}=[fill=white,   font=\huge, text=black]
+\tikzstyle{toss}=[fill=gray!40, font=\huge, text=black]
+\tikzstyle{Dwin}=[fill=blue!70, font=\huge, text=yellow!50!white]
+\tikzstyle{Rwin}=[fill=red!70,  font=\huge, text=yellow!50!white]
+\tikzstyle{Dfav}=[fill=cyan!20, font=\huge, text=black]
+\tikzstyle{Rfav}=[fill=pink!60, font=\huge, text=black]
+
+\tikzstyle{state}=[line width=1mm]
+\tikzstyle{district}=[gray, line width=0.5mm]
+% \tikzstyle{lake}=[fill=white]
+\tikzstyle{label}=[font=\huge, text=black]
+
+
+% Dotted grid lines
+\begin{pgfonlayer}{foreground}
+\draw[step=1cm,gray,dotted,thick] (\xmin,\ymin) grid (\xmax,\ymax);
+\end{pgfonlayer}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Import commands for drawing the Electoral College progress bar
+\input{EC-bar}
+
+% Now draw the actual bars
+% Remember to draw each of the (longer) Xfav bars before the (shorter) Xwin bars
+\Dfavbar{\Dfavcount};
+\Dwinbar{\Dwincount};
+\Rfavbar{\Rfavcount};
+\Rwinbar{\Rwincount};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Draw the state boundaries and colour them by their state styles HI, AK, etc.
+% These state styles are defined in the data file input at the top e.g. 2020-results.tex
+\input{draw-states}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Optionally, an info box in the lower right corner
+%\draw[ultra thick] (41,0) rectangle ++(-5,10);
+
+%% Experimenting with trying to calculate EC totals automatically
+%\ifthenelse
+% {\equal{1}{1}}
+%	{\draw[fill=green] (39,5) circle (1cm) {};}
+%	{\draw[fill=red] (39,5) circle (1cm) {};}
+%\foreach \s[
+%	remember=\j as \j (initially 0), 
+%	evaluate=\j using \j+3
+%] in {HI, AK} {}; % Don't draw anything on each loop, just using the end result.
+%\node[black, font=\huge] at (40,1) {$\j$};
+
+
+
+
+
+\end{tikzpicture}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+

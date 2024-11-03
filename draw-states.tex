@@ -1,0 +1,413 @@
+%!TEX root=main.tex
+
+% Draw the state boundaries and colour them by their state styles HI, AK, etc.
+
+% HI
+\draw[state, HI] (2,1) rectangle ++(2,2);
+\node[HI] at (3,2) (HI) {HI};
+
+% AK
+\draw[state, AK] (2,23) -- \D{1} -- \E{1} -- \D{1} -- \E{1} -- \U{2} -- cycle;
+\node[AK] at (3,22.5) (AK) {AK};
+
+
+% CA
+\draw[state, CA] 
+(2,15) -- \D{6} -- \E{1} -- 
+\D{2} -- 
+\E{1} -- \D{1} -- 
+\E{1} -- \D{1} -- 
+\E{3} -- \U{6} -- \E{1} -- \U{2} 
+-- \W{1} -- \U{1} -- \W{1} -- \U{1} -- cycle;
+\node[CA] at (5,11) (CA) {CA};
+
+
+% OR
+\draw[state, OR] 
+(5,15) -- \E{4} -- \U{2} -- 
+\W{3} -- \D{1} -- \W{2} -- \D{1} -- cycle;
+\node[OR] at (7.5,16) (OR) {OR};
+
+
+% WA
+\draw[state, WA] (5,16) -- \E{1} -- \U{1} -- \E{3} -- \U{3} -- 
+\W{3} -- \D{1} -- \W{1} -- cycle;
+\node[WA] at (7.5,18.5) (WA) {WA};
+
+
+% AZ
+\draw[state, AZ] (8,9) -- \E{4} -- \U{3} -- \W{3} --
+\D{1} -- \W{1} -- cycle;
+\node[AZ] at (10.5,10.5) (AZ) {AZ};
+
+
+% NV
+\draw[state, NV] (7,15) -- 
+\D{1} -- \E{1} -- 
+\D{1} -- \E{1} -- 
+\D{1} -- \E{1} -- \U{3} -- cycle;
+\node[NV] at (9,14) (NV) {NV};
+
+% ID
+\draw[state, ID] (9,15) -- \E{2} -- 
+\U{1} -- \W{1} --
+\U{2} -- \W{1} -- cycle;
+\node[ID] at (10,15.5) (ID) {ID};
+
+
+% UT
+\draw[state, UT] (10,12) rectangle ++(2,3);
+\node[UT] at (11,13.5) (UT) {UT};
+
+% CO
+\draw[state, CO] 
+(12,12) --
+\E{3} -- 
+\U{4} -- \W{1} -- \D{1} -- \W{2} --
+cycle;
+\node[CO] at (13.5,13.5) (CO) {CO};
+
+% NM
+\draw[state, NM] (12,12) --
+\D{3} -- \E{1} -- 
+\U{1} -- \E{1} -- 
+\U{2} -- \W{2} -- cycle;
+\node[NM] at (13,11) (NM) {NM};
+
+% MT
+\draw[state, MT] 
+(10,16) -- 
+\E{3} -- 
+\U{2} -- 
+\W{1} -- 
+\D{1} -- 
+\W{2} -- 
+cycle;
+\node[MT] at (11.5,16.5) (MT) {MT};
+
+% WY
+\draw[state, WY] (11,15) rectangle ++(3,1);
+\node[WY] at (12.5,15.5) (WY) {WY};
+
+% SD
+\draw[state, SD] (13,16) rectangle ++(3,1);
+\node[SD] at (14.5,16.5) (SD) {SD};
+
+% ND
+\draw[state, ND] (13,17) rectangle ++(3,1);
+\node[ND] at (14.5,17.5) (ND) {ND};
+
+% KS
+\draw[state, KS] (15,12) rectangle ++(3,2);
+\node[KS] at (16.5,13) (KS) {KS};
+
+% OK
+\draw[state, OK] (14,11) -- 
+\E{1} -- \D{1} --
+\E{3} -- \U{2} -- \W{4} -- cycle;
+\node[OK] at (16.5,11) (OK) {OK};
+
+% TX
+\draw[state, TX] (11,9) -- 
+\D{1} -- \E{1} -- 
+\D{3} -- \E{1} -- 
+\D{1} -- \E{1} -- 
+\D{1} -- \E{1} -- 
+\D{1} -- \E{2} -- 
+\U{2} -- %\E{1} -- 
+\U{1} -- \E{1} -- 
+\U{5} -- \W{3} -- 
+\U{1} -- \W{1} -- 
+\D{1} -- \W{1} -- 
+\D{1} -- 
+cycle;
+\node[TX] at (15,7.5) (TX) {TX};
+
+
+% MN
+\draw[state, MN] (16,16) rectangle ++(2,5);
+\node[MN] at (17,18.5) (MN) {MN};
+
+
+% MO
+\draw[state, MO] (18,11)-- 
+\E{4} -- 
+\U{1} -- \W{1} --
+\U{2} -- \W{3} -- cycle;
+\node[MO] at (19.5,12.5) (MO) {MO};
+
+% AR
+\draw[state, AR] (18,8) rectangle ++(2,3);
+\node[AR] at (19,9.5) (AR) {AR};
+
+% LA
+\draw[state, LA] (18,5)-- 
+\E{3} -- 
+\U{2} -- \W{1} --
+\U{1} -- \W{2} -- cycle;
+\node[LA] at (19,6.5) (LA) {LA};
+
+
+% WI
+\draw[state, WI] (18,20) -- 
+\E{2} -- \D{1} --
+\E{2} -- \U{3} -- \W{4} -- cycle;
+\node[WI] at (20,21) (WI) {WI};
+
+
+% IA
+\draw[state, IA] (18,14) -- 
+\E{3} -- \U{1} -- 
+\W{1} -- \U{1} -- 
+\W{3} -- 
+\D{1} -- 
+\E{1} -- 
+cycle;
+\node[IA] at (19,15) (IA) {IA};
+
+% IL
+\draw[state, IL] (18,20) -- 
+\D{4} -- \E{2} -- \D{1} -- \E{1} -- \D{3} -- 
+\E{1} -- \U{7} -- \W{2} -- \U{1} -- 
+cycle;
+\node[IL] at (20,17.5) (IL) {IL};
+
+% IN
+\draw[state, IN] (22,13) -- 
+\E{2} -- \U{6} -- 
+\W{1} -- \D{1} -- \W{1} -- cycle;
+\node[IN] at (23,16) (IN) {IN};
+
+% KY
+\draw[state, KY] (22,11) rectangle ++(4,2);
+\node[KY] at (24,12) (KY) {KY};
+
+% TN
+\draw[state, TN] (20,11) --
+\D{2} -- \E{5} -- 
+\U{1} -- \E{1} -- 
+\U{1} -- \W{6} -- 
+cycle;
+\node[TN] at (22.5,10) (TN) {TN};
+
+% MS
+\draw[state, MS] (20,7) -- 
+\E{1} -- \D{2} --
+\E{1} -- \U{4} -- \W{2} -- cycle;
+\node[MS] at (21,8) (MS) {MS};
+
+% AL
+\draw[state, AL] (22,6) rectangle ++(3,3);
+\node[AL] at (23.5,7.5) (AL) {AL};
+
+% GA
+\draw[state, GA] (25,6) -- 
+\E{7} -- 
+\U{1} -- \W{2} --
+\U{1} -- \W{1} --
+\U{1} -- \W{4} -- cycle;
+\node[GA] at (27.5,7.5) (GA) {GA};
+
+% SC
+\draw[state, SC] (29,9) -- 
+\D{1} -- \E{1} -- 
+\D{1} -- \E{2} -- 
+\D{1} -- \E{1} -- 
+\U{2} -- 
+\E{1} -- \U{1} -- 
+cycle;
+\node[SC] at (31.5,8) (SC) {SC};
+
+% FL
+\draw[state, FL] (23,6) -- 
+\D{2} -- \E{6} -- 
+\D{4} -- \E{3} -- \U{6} -- cycle;
+\node[FL] at (29,5) (FL) {FL};
+
+
+% NC
+\draw[state, NC] (25,9) -- 
+\E{8} -- 
+\U{1} -- \E{1} -- \U{1} -- \W{8} -- 
+\D{1} -- \W{1} -- cycle;
+\node[NC] at (29,10) (NC) {NC};
+
+% VA
+\draw[state, VA] (26,11) -- 
+\E{7} -- \U{1} -- 
+\E{1} -- \U{1} -- 
+\W{6} -- \D{1} -- \W{2} --
+cycle;
+\node[VA] at (30,12) (VA) {VA};
+
+
+
+% DC
+\draw[state, DC] (30,13) rectangle ++(3,1);
+\node[DC] at (31.5,13.5) (DC) {DC};
+
+% MD
+\draw[state, MD] (27,15) -- 
+\D{1} -- \E{2} -- 
+\D{1} -- \E{1} -- 
+\U{1} -- \E{3} -- 
+\D{1} -- \E{2} -- 
+\U{1} -- \W{1} -- 
+\U{1} -- \W{7} -- 
+cycle;
+\node[MD] at (30.5,14.5) (MD) {MD};
+
+% DE
+\draw[state, DE] (34,14) -- 
+\E{1} -- \D{1} --
+\E{1} -- \U{2} -- \W{2} -- cycle;
+\node[DE] at (35,14.5) (DE) {DE};
+
+% NJ
+\draw[state, NJ] (34,15) -- 
+\E{2} -- \D{1} --
+\E{2} -- \U{4} -- \W{4} -- cycle;
+\node[NJ] at (36,16.5) (NJ) {NJ};
+
+
+% NY
+\draw[state, NY] (29,18) -- 
+\E{4} -- 
+%\D{1} -- \E{1} -- \U{8} -- 
+\D{2} -- \E{1} -- \U{9} -- \W{1} -- \D{1} -- 
+\W{1} -- \D{1} -- \W{1} -- \D{1} -- 
+\W{2} -- 
+cycle;
+\node[NY] at (31.5,20) (NY) {NY};
+
+% VT
+\draw[state, VT] (34,24) rectangle ++(3,1);
+\node[VT] at (35.5,24.5) (VT) {VT};
+
+% NH
+\draw[state, NH] (37,24) rectangle ++(2,2);
+\node[NH] at (38,25) (NH) {NH};
+
+% MA
+\draw[state, MA] (34,22)-- 
+\E{6} -- 
+\U{1} -- \W{1} --
+\U{1} -- \W{5} -- cycle;
+\node[MA] at (37,23) (MA) {MA};
+
+% CT
+\draw[state, CT] (34,22) --
+\D{3} -- \E{1} -- 
+\U{1} -- \E{2} -- \U{2} -- \W{3} -- 
+cycle;
+\node[CT] at (35.5,21) (CT) {CT};
+
+% RI
+\draw[state, RI] (37,20) rectangle ++(2,2);
+\node[RI] at (38,21) (RI) {RI};
+
+
+% WV
+\draw[state, WV] (26,12) --
+\E{2} -- \U{1} -- \E{1} -- \U{1} -- 
+%\W{3} -- 
+\W{2} -- 
+\D{1} -- 
+\W{1} -- 
+cycle;
+\node[WV] at (28,13.5) (WV) {WV};
+
+
+% OH
+\draw[state, OH] (24,13) -- 
+\E{3} -- \U{5} -- 
+\W{1} -- \U{1} -- \W{2} -- cycle;
+\node[OH] at (25.5,16) (OH) {OH};
+
+% MI
+\draw[state, MI] (23,19) -- 
+\E{4} -- \U{3} -- 
+\W{1} -- \U{1} -- 
+\W{3} -- cycle;
+\node[MI] at (25,21) (MI) {MI};
+
+% PA
+\draw[state, PA] (27,15)-- 
+\E{7} -- 
+\U{1} -- \W{1} -- \U{2} -- 
+\W{6} -- cycle;
+\node[PA] at (30.5,16.5) (PA) {PA};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% NEBRASKA and its districts
+%	In the 2024 election, 
+%	Nebraska allocates 2 electoral votes to the state popular vote winner, 
+%	and then one electoral vote to the winner in each of 3 districts
+
+% NE popular vote winner
+\draw[district, N0] (15,16) -- 
+\D{2} --
+\E{1} -- \U{2} -- 
+cycle;
+
+% NE district 1
+\draw[district, N1] (16,16) -- 
+\D{1} --
+\E{1} -- \U{1} -- 
+cycle;
+
+% NE district 2
+\draw[district, N2] (16,15) -- 
+\D{1} --
+\E{1} -- \U{1} -- 
+cycle;
+
+% NE district 3
+\draw[district, N3] (17,15) -- 
+\D{1} --
+\E{1} -- \U{1} -- 
+cycle;
+
+% NE - drawing the state boundary
+\draw[state] (15,16) -- 
+\D{2} --
+\E{3} -- \U{1} -- \W{1} -- \U{1} -- 
+cycle;
+\node[N0] at (16,15) (NE) {NE};  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% MAINE and its districts
+%	In the 2024 election, 
+%	Maine allocates 2 electoral votes to the state popular vote winner, 
+%	and then one electoral vote to the winner in each of 2 districts
+
+% ME popular vote winner
+\draw[district, M0] (39,25) rectangle ++(2,1);
+
+%% ME district 1
+\draw[district, M1] (39,24) rectangle ++(1,1);
+
+% ME district 2
+\draw[district, M2] (40,24) rectangle ++(1,1);
+
+% ME - drawing the state boundary
+\draw[state] (39,24) rectangle ++(2,2);
+\node[M0] at (40,25.5) (ME) {ME};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% Optionally, a couple of lakes; 
+% but need to choose colouring for these that doesn't clash with blue for Dem
+
+% % Lake Michigan
+% \draw[state, lake] (22,18) rectangle ++(1,4);
+
+% % Lake Erie / Lake Ontario
+%\draw[state, lake] 
+%(26,18) --
+%\E{3} -- \U{4} -- \W{2} -- \D{3} -- \W{1} -- cycle;
+

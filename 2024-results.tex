@@ -1,0 +1,80 @@
+%!TEX root=main.tex
+
+% In this file we record the status of each state as the results come in.
+% Each state on the map has its own style that has been used to colour it; 
+% 	here we define those state styles in terms of some pre-defined styles Dfav, Rfav, etc.
+
+\tikzstyle{AK}=[Rfav]	%  3	Alaska
+\tikzstyle{AL}=[Rfav]	%  9	Alabama
+\tikzstyle{AR}=[Rfav]	%  6	Arkansas
+\tikzstyle{AZ}=[toss]	% 11	Arizona
+\tikzstyle{CA}=[Dfav]	% 54	California
+\tikzstyle{CO}=[Dfav]	% 10	Colorado
+\tikzstyle{CT}=[Dfav]	%  7	Connecticut
+\tikzstyle{DC}=[Dfav]	%  3	District of Columbia*
+\tikzstyle{DE}=[Dfav]	%  3	Delaware
+\tikzstyle{FL}=[Rfav]	% 30	Florida
+\tikzstyle{GA}=[toss]	% 16	Georgia
+\tikzstyle{HI}=[Dfav]	%  4	Hawaii
+\tikzstyle{IA}=[Rfav]	%  6	Iowa
+\tikzstyle{ID}=[Rfav]	%  4	Idaho
+\tikzstyle{IL}=[Dfav]	% 19	Illinois
+\tikzstyle{IN}=[Rfav]	% 11	Indiana
+\tikzstyle{KS}=[Rfav]	%  6	Kansas
+\tikzstyle{KY}=[Rfav]	%  8	Kentucky
+\tikzstyle{LA}=[Rfav]	%  8	Louisiana
+\tikzstyle{MA}=[Dfav]	% 11	Massachusetts
+\tikzstyle{MD}=[Dfav]	% 10	Maryland
+
+%\tikzstyle{ME}=[Dfav]	% Maine**
+\tikzstyle{M0}=[Dfav]	%  2	Maine popular vote winner
+\tikzstyle{M1}=[Dfav]	%  1	Maine district 1
+\tikzstyle{M2}=[Rfav]	%  1	Maine district 2
+
+\tikzstyle{MI}=[toss]	% 15	Michigan
+\tikzstyle{MN}=[Dfav]	% 10	Minnesota
+\tikzstyle{MO}=[Rfav]	% 10	Missouri
+\tikzstyle{MS}=[Rfav]	%  6	Mississippi
+\tikzstyle{MT}=[Rfav]	%  4	Montana
+\tikzstyle{NC}=[toss]	% 16	North Carolina
+\tikzstyle{ND}=[Rfav]	%  3	North Dakota
+
+%\tikzstyle{NE}=[Rfav]	% Nebraska**
+\tikzstyle{N0}=[Rfav]	%  2	Nebraska popular vote winner
+\tikzstyle{N1}=[Rfav]	%  1	Nebraska district 1
+\tikzstyle{N2}=[Rfav]	%  1	Nebraska district 2
+\tikzstyle{N3}=[Dfav]	%  1	Nebraska district 3
+
+\tikzstyle{NH}=[Dfav]	%  4	New Hampshire
+\tikzstyle{NJ}=[Dfav]	% 14	New Jersey
+\tikzstyle{NM}=[Dfav]	%  5	New Mexico
+\tikzstyle{NV}=[toss]	%  6	Nevada
+\tikzstyle{NY}=[Dfav]	% 28	New York
+\tikzstyle{OH}=[Rfav]	% 17	Ohio
+\tikzstyle{OK}=[Rfav]	%  7	Oklahoma
+\tikzstyle{OR}=[Dfav]	%  8	Oregon
+\tikzstyle{PA}=[toss]	% 19	Pennsylvania
+\tikzstyle{RI}=[Dfav]	%  4	Rhode Island
+\tikzstyle{SC}=[Rfav]	%  9	South Carolina
+\tikzstyle{SD}=[Rfav]	%  3	South Dakota
+\tikzstyle{TN}=[Rfav]	% 11	Tennessee
+\tikzstyle{TX}=[Rfav]	% 40	Texas
+\tikzstyle{UT}=[Rfav]	%  6	Utah
+\tikzstyle{VA}=[Dfav]	% 13	Virginia
+\tikzstyle{VT}=[Dfav]	%  3	Vermont
+\tikzstyle{WA}=[Dfav]	% 12	Washington
+\tikzstyle{WI}=[toss]	% 10	Wisconsin
+\tikzstyle{WV}=[Rfav]	%  4	West Virginia
+\tikzstyle{WY}=[Rfav]	%  3	Wyoming
+
+
+
+% How many Electoral College votes the above wins and expectations give each candidate:
+% Unfortunately I haven't figured out how to update this automatically from the above data,
+%  so these numbers must be edited manually as results come in
+
+\def\Dfavcount{226};
+\def\Rfavcount{219};
+
+\def\Dwincount{0};
+\def\Rwincount{0};

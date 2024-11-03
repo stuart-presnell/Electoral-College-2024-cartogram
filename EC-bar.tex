@@ -1,0 +1,86 @@
+%!TEX root=main.tex
+
+% Drawing the Electoral College progress bar
+
+%% Example usage:
+%\leftbar{300}{Dfav};
+%\leftbar{273}{Dwin};
+%\rightbar{100}{Rfav};
+%\rightbar{50}{Rwin};
+%% These are on the main layer, so between the grey background and the foreground labels
+%% Remember to draw each of the (longer) Xfav bars before the (shorter) Xwin bars
+
+
+% Style for text labels
+\tikzstyle{bartext}=[black, font=\huge]
+
+% Parameters setting the left, right, bottom and top of the bar
+%  The bar is 36 units wide, so each step corresponds to 15 EC votes
+\def\barL{3}
+\def\barR{39}
+\def\barB{28}
+\def\barT{30}
+
+% Calculate the horizontal midpoint of the bar
+\pgfmathparse{(\barL + \barR)/2};
+\edef\barM{\pgfmathresult}
+
+% Calculate the vertical midpoint of the bar
+\pgfmathparse{(\barT + \barB)/2};
+\edef\barC{\pgfmathresult}
+
+% Draw the EC progress bar rectangle on the background layer;
+%  This ensures that subsequent bars drawn on main are over this background
+\begin{pgfonlayer}{background}
+	\draw[wait, state] (\barL,\barB) rectangle (\barR,\barT);
+\end{pgfonlayer}
+
+% Draw and label the midpoint of the bar on the foreground layer
+%  This ensures that the line is still visible when we draw bars on main
+\begin{pgfonlayer}{foreground}
+	\draw[ultra thick, black] (\barM,\barT) -- (\barM,\barB);
+	\node[circle, black, fill=yellow, font=\huge] at (\barM,\barC) {270};
+\end{pgfonlayer}
+
+
+
+% Draw a rectangle from the left of the EC bar of length (#1/538) the bar
+% Styled as #2, with label at position #3
+\newcommand{\leftbar}[3]{
+	\pgfmathparse{\barL + ((\barR - \barL)*(#1/538))};	
+	\edef\barX{\pgfmathresult}
+	
+	\draw[state, #2] (\barL,\barT) rectangle (\barX,\barB);
+	\node[bartext, below=#3mm, #2] at (\barX,\barB) {#1};
+}
+
+
+% Draw a rectangle from the right of the EC bar of length (#1/538) the bar
+% Styled as #2, with label at position #3
+\newcommand{\rightbar}[3]{
+	\pgfmathparse{\barL + ((\barR - \barL)*(1 - #1/538))};	
+	\edef\barX{\pgfmathresult}
+	
+	\draw[state, #2] (\barR,\barT) rectangle (\barX,\barB);
+	\node[bartext, above=#3mm, #2] at (\barX,\barT) {#1};
+}
+
+
+% Now bundle these into commands for the 4 bars we want to draw
+
+\newcommand{\Dfavbar}[1]{
+	\leftbar{#1}{Dfav}{11};
+}
+
+\newcommand{\Dwinbar}[1]{
+	\leftbar{#1}{Dwin}{1};
+}
+
+\newcommand{\Rfavbar}[1]{
+	\rightbar{#1}{Rfav}{11};
+}
+
+\newcommand{\Rwinbar}[1]{
+	\rightbar{#1}{Rwin}{1};
+}
+
